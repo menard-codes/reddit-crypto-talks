@@ -12,6 +12,12 @@ const useStyles = makeStyles((theme) => ({
     },
     title: {
         padding: '20px'
+    },
+    note: {
+        marginLeft: '20px'
+    },
+    noteStrong: {
+        color: '#f44336'
     }
   }));
 
@@ -27,8 +33,10 @@ function SectionContent({index, title, content, currentTabValue}) {
                             {title}
                         </Typography>
                     </Grid>
+                    <Typography variant="body1" className={classes.note}>
+                        <strong className={classes.noteStrong}>NOTE</strong>: The Reddit Web Scraping bot for this site was paused. Data were outdated.
+                    </Typography>
                     <Grid item xs={12}>
-                        {/* {mockData.map((title, index) => <PostCard key={title} index={index} title={title} />)} */}
                         {content.map((post) => (
                             <PostCard
                                 key={post['link']}
@@ -36,7 +44,7 @@ function SectionContent({index, title, content, currentTabValue}) {
                                 upvotes={post['upvotes']}
                                 date_posted={post['date_posted']}
                                 link={post['link']} />
-                        )
+                            )
                         )}
                     </Grid>
                 </Grid>
